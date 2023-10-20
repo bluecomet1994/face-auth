@@ -16,6 +16,12 @@ app.use(logger('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 app.use(passport.initialize());
 (0, passport_1.default)(passport);
 app.get('/', (req, res) => res.send("Response from the server"));
