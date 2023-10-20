@@ -17,10 +17,10 @@ const app = express();
 
 // middleware
 app.use(cors());
-app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app/login, https://face-verification.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   next();
 });
 app.use(logger('dev'));

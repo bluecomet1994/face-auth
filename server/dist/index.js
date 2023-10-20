@@ -14,9 +14,9 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app/login, https://face-verification.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'POST');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     next();
 });
 app.use(logger('dev'));
