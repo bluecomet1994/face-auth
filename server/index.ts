@@ -16,18 +16,18 @@ connectDB();
 const app = express();
 
 // middleware
-app.use(logger('dev'));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 app.use(cors());
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 passport_verify(passport);
-
-app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 // routes
 app.get('/', (req: express.Request, res: express.Response) => res.send("Response from the server"));

@@ -12,17 +12,18 @@ const passport_1 = require("./config/passport");
 dotenv.config();
 (0, connectDB_1.default)();
 const app = express();
-app.use(logger('dev'));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
 app.use(cors());
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 (0, passport_1.default)(passport);
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 app.get('/', (req, res) => res.send("Response from the server"));
 app.use('/api', routes_1.default);
 app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`));
