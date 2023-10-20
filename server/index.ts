@@ -16,14 +16,8 @@ connectDB();
 const app = express();
 
 // middleware
-app.use(cors());
-app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  next();
-});
 app.use(logger('dev'));
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());

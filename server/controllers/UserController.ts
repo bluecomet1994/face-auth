@@ -46,6 +46,10 @@ export default class UserController {
     }
 
     static async login(req: Request, res: Response) {
+        res.setHeader('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
+        res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        
         const { errors }: any = validationResult(req);
 
         if (errors.length > 0) {
