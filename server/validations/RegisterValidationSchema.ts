@@ -5,11 +5,7 @@ const RegisterValidationSchema = [
         .notEmpty()
         .isEmail(),
         
-    body('firstname')
-        .notEmpty()
-        .isString(),
-
-    body('lastname')
+    body('name')
         .notEmpty()
         .isString(),
 
@@ -21,7 +17,10 @@ const RegisterValidationSchema = [
     body('confirm')
         .notEmpty()
         .isString()
-        .custom((value, {req}) => value === req.body.password)
+        .custom((value, {req}) => value === req.body.password),
+
+    body('faceDescriptor')
+        .notEmpty()
 ];
 
 export default RegisterValidationSchema;

@@ -1,0 +1,21 @@
+{
+  "name": "face-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:start": "cd server && npm start",
+    "client:start": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluecomet1994/face-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluecomet1994/face-auth/issues"
+  },
+  "homepage": "https://github.com/bluecomet1994/face-auth#readme"
+}

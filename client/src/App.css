@@ -1,38 +1,210 @@
-.App {
+:root {
+  --font-primary: 'Nunito', sans-serif;
+  --primary: rgb(26, 45, 62);
+  --secondary: rgb(0, 197, 0);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #EEEEEE;
+}
+
+a {
+  margin: 16px 0;
   text-align: center;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*  home  */
+.home-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  animation: shrink-anim .5s;
+}
+
+.home-card h1 {
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: var(--secondary);
+}
+
+.user-info-container {
+  display: flex;
+}
+
+.user-info-container div {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+  margin: 24px;
+}
+
+.user-info-container h2 {
+  margin: 8px 0;
+}
+
+.user-info-container h3 {
+  margin: 8px 0;
+}
+
+.user-info-container button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px 20px;
+  margin-top: 32px;
+  background-color: var(--primary);
+}
+
+
+/*  auth camera  */
+.camera-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 425px;
+  height: 600px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.camera-container img[alt="face-placeholder"] {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.camera-video {
+  margin-left: 0%;
+}
+
+.camera-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  box-shadow: 0px 0px 20px 156px rgb(0 0 0 / 30%);
+  border: 6px dashed;
+  border-radius: 50%;
+}
+
+.camera-overlay p {
+  font-weight: bold;
+  font-size: 24px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.video-button {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.preview {
+  position: relative;
+}
+
+.flash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.preview-container img {
+  transform: scale(1);
+  vertical-align: middle;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+
+/*  auth form  */
+.auth-form {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  animation: shrink-anim .5s;
+}
+
+.auth-form form {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  padding: 25px;
+}
+
+.auth-form form h1 {
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.auth-form .form-input {
+  margin: 8px 0;
+}
+
+.auth-form .form-submit {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 28px;
+  background-color: var(--primary);
+}
+
+.auth-form .form-alter-btn {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 12px;
+  color: var(--primary);
+}
+
+@keyframes shrink-anim {
+  0% {
+    transform: scale(1.1);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
