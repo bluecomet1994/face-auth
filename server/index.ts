@@ -23,6 +23,12 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 passport_verify(passport);
 
+app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // routes
 app.get('/', (req: express.Request, res: express.Response) => res.send("Response from the server"));
 app.use('/api', api);
