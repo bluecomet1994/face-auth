@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const cors = require("cors");
 const passport = require("passport");
 const connectDB_1 = require("./config/connectDB");
 const routes_1 = require("./routes");
@@ -18,7 +17,6 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
-app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
