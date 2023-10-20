@@ -16,10 +16,11 @@ connectDB();
 const app = express();
 
 // middleware
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+app.use(cors());
+app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app/login, https://face-verification.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 app.use(logger('dev'));

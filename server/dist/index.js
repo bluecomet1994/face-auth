@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const cors = require("cors");
 const passport = require("passport");
 const connectDB_1 = require("./config/connectDB");
 const routes_1 = require("./routes");
@@ -11,10 +12,11 @@ const passport_1 = require("./config/passport");
 dotenv.config();
 (0, connectDB_1.default)();
 const app = express();
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+app.use(cors());
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app/login, https://face-verification.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'POST');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
 app.use(logger('dev'));
