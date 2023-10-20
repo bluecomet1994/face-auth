@@ -20,13 +20,6 @@ app.use(logger('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.header('Access-Control-Allow-Origin', 'https://face-verification.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'POST');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
-
 app.use(passport.initialize());
 passport_verify(passport);
 
