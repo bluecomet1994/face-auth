@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w -p ./",
+    "build": "rimraf ./dist && tsc",
+    "ts-check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
     "start": "nodemon dist/index.js"
   },
   "keywords": [],
@@ -41,5 +44,10 @@
     "@types/passport-jwt": "^3.0.8",
     "@types/validator": "^13.7.15",
     "nodemon": "^2.0.22"
-  }
+  },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ]
 }
