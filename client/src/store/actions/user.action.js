@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const ROOT_API = 'http://localhost:5000/api';
+export const ROOT_API = 'https://face-auth-ten.vercel.app/api';
 
 export const REGISTER_REQUEST = '[USER] REGISTER REQUEST';
 export const REGISTER_SUCCESS = '[USER] REGISTER SUCCESS';
